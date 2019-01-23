@@ -4,6 +4,7 @@ var section = document.querySelector('section');
 
 var requestURL = "https://github.com/MattNovik/for_work/blob/master/products.json";
 var request = new XMLHttpRequest();
+request.withCredentials = true;
 request.open('GET', requestURL);
 request.responseType = 'json';
 request.send();
@@ -22,7 +23,7 @@ function populateHeader(jsonObj) {
   header.appendChild(myPara);
 }
 
-unction showHeroes(jsonObj) {
+function showHeroes(jsonObj) {
   var heroes = jsonObj['members'];
       
   for (var i = 0; i < heroes.length; i++) {
