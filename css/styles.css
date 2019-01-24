@@ -5,7 +5,7 @@
   height: 250px;
   margin: 0 0 10px 10px;
   padding: 0;
-  border: solid 1px black;
+  border: solid 1px #000000;
   justify-content: space-between; }
 
 .product_left_page {
@@ -33,8 +33,8 @@
       min-width: 100px;
       height: auto; }
     .product_middle_page .middle_top .right_text_in_out {
-      color: green;
-      border-bottom: 1px dashed green; }
+      color: #309524;
+      border-bottom: 1px dashed #309524; }
   .product_middle_page .middle_middle_name {
     align-self: top;
     font-weight: bold;
@@ -47,12 +47,13 @@
   height: auto;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 100px 40px 1fr; }
+  grid-template-rows: 100px 60px 1fr;
+  grid-row-gap: 5px; }
   .product_right_page .price {
     display: grid;
-    margin: 0;
+    margin: 0 5px;
     padding: 0;
-    grid-template-rows: 1fr 1fr 20px;
+    grid-template-rows: 40px 40px 20px;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "clubPrice totalPrice" "clubPrice totalPrice" "forUnit forUnit"; }
     .product_right_page .price .for_club_card {
@@ -62,16 +63,129 @@
     .product_right_page .price .total_price {
       grid-area: totalPrice;
       display: grid;
-      grid-template-rows: 1fr 1fr;
+      grid-template-rows: 40px 40px;
       padding: 5px;
-      font-size: 1.5em;
-      color: black; }
+      font-size: 1.6em;
+      color: #000000; }
       .product_right_page .price .total_price .total_price_with_card {
-        font-weight: bold; }
+        position: relative;
+        font-weight: bold;
+        align-self: center; }
+        .product_right_page .price .total_price .total_price_with_card img {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: auto;
+          height: auto; }
       .product_right_page .price .total_price .total_price_without_card {
-        color: gray; }
+        color: gray;
+        position: relative;
+        align-self: center; }
+        .product_right_page .price .total_price .total_price_without_card img {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: auto;
+          height: auto; }
     .product_right_page .price .for_unit {
       grid-area: forUnit;
-      text-align: right; }
+      text-align: right;
+      cursor: pointer; }
       .product_right_page .price .for_unit span {
-        margin: 0 5px; }
+        margin: 0 10px;
+        font-size: 1.1em;
+        border-bottom: 1px dashed #000000; }
+      .product_right_page .price .for_unit span:hover {
+        background-color: #000000;
+        color: white;
+        margin: 0 5px;
+        border-right: solid 5px #000000;
+        border-left: solid 5px #000000; }
+  .product_right_page .how_sold {
+    border: 1px solid  #867D7D;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    padding: 0;
+    margin: 0 10px;
+    position: relative; }
+    .product_right_page .how_sold img {
+      width: 20px;
+      height: 20px;
+      align-self: center;
+      justify-self: center; }
+    .product_right_page .how_sold .for_pack_meter {
+      align-self: center;
+      justify-self: start; }
+  .product_right_page .how_sold::before,
+  .product_right_page .how_sold::after {
+    content: '';
+    position: absolute;
+    left: 10px;
+    bottom: -20px;
+    border: 10px solid transparent;
+    border-top: 10px solid #867D7D; }
+  .product_right_page .how_sold::after {
+    border-top: 10px solid white;
+    bottom: -19px; }
+  .product_right_page .number_buy {
+    margin: 0;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas: "totalNumber basket" ". .";
+    grid-column-gap: 5px; }
+    .product_right_page .number_buy .total_number {
+      grid-area: totalNumber;
+      border: solid 1px black;
+      display: grid;
+      margin: 0;
+      padding: 0;
+      grid-template-columns: 1fr 20px;
+      grid-template-rows: 25px 25px;
+      grid-template-areas: "number topArrow" "number bottomArrow"; }
+      .product_right_page .number_buy .total_number .number {
+        grid-area: number;
+        align-self: center;
+        justify-self: center; }
+      .product_right_page .number_buy .total_number .top_arrow {
+        grid-area: topArrow;
+        background-image: url("images/jquery.fs.stepper-arrows.png");
+        width: 19px;
+        height: 24px;
+        border-left: solid 1px black;
+        border-bottom: solid 1px black;
+        cursor: pointer; }
+      .product_right_page .number_buy .total_number .spr_top_arrow {
+        background-position: -30px -40px; }
+      .product_right_page .number_buy .total_number .bottom_arrow {
+        grid-area: bottomArrow;
+        background-image: url("images/jquery.fs.stepper-arrows.png");
+        width: 19px;
+        height: 25px;
+        border-left: solid 1px black;
+        cursor: pointer; }
+      .product_right_page .number_buy .total_number .spr_bottom_arrow {
+        background-position: -30px -18px; }
+    .product_right_page .number_buy .basket {
+      grid-area: basket;
+      height: auto;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      background-color: #FE9900;
+      cursor: pointer; }
+      .product_right_page .number_buy .basket .basket_img {
+        align-self: center;
+        justify-self: center;
+        background-image: url("images/el.png");
+        background-repeat: no-repeat;
+        width: 27px;
+        height: 27px; }
+      .product_right_page .number_buy .basket .spr_basket {
+        background-position: -122px -62px; }
+      .product_right_page .number_buy .basket .basket_name {
+        align-self: center;
+        justify-self: start;
+        font-weight: bold;
+        color: #FFFFFF; }

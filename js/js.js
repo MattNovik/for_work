@@ -1,5 +1,6 @@
 var local_data = data;
 
+    var numberClick = 1;
 
    window.onload = function () {
 
@@ -23,7 +24,9 @@ var local_data = data;
        var forClubCard = document.createElement('div');
        var totalPrice = document.createElement('div');
           var totalPriceWithCard = document.createElement('div');
+          var roubleDark = document.createElement('img');
           var totalPriceWithoutCard = document.createElement('div');
+          var roubleGray = document.createElement('img')
        var forUnit = document.createElement('div');
           var forMeter = document.createElement('span');
           var forPack = document.createElement('span');
@@ -32,12 +35,12 @@ var local_data = data;
           var forPackMeter = document.createElement('div');
         var numberBuy = document.createElement('div');
           var totalNumber = document.createElement('div');
-            var number = document.createElement('span');
-            var topArrow = document.createElement('img');
-            var bottomArrow = document.createElement('img');
-          var busket = document.createElement('div');
-            var busketImg = document.createElement('img');
-            var busketName = document.createElement('span');
+            var number = document.createElement('div');
+            var topArrow = document.createElement('div');
+            var bottomArrow = document.createElement('div');
+          var basket = document.createElement('div');
+            var basketImg = document.createElement('div');
+            var basketName = document.createElement('div');
     
 
    productPage.className = "product_page";
@@ -54,10 +57,12 @@ var local_data = data;
         middleBottomNeeded.className = "middle_bottom_needed";
      productRightPage.className = "product_right_page";
        price.className = "price";
-       forClubCard.className = "for_club_card";
+       forClubCard.className = "for_club_card";    
        totalPrice.className ="total_price" ;
           totalPriceWithCard.className ="total_price_with_card" ;
+           roubleDark.className = "rouble_dark";
           totalPriceWithoutCard.className = "total_price_without_card";
+           roubleGray.className = "rouble_gray";
        forUnit.className ="for_unit" ;
           forMeter.className ="for_meter" ;
           forPack.className = "for_pack";
@@ -68,10 +73,13 @@ var local_data = data;
           totalNumber.className ="total_number" ;
             number.className = "number";
             topArrow.className = "top_arrow";
+            topArrow.classList.add('spr_top_arrow');
             bottomArrow.className = "bottom_arrow";
-          busket.className = "busket";
-            busketImg.className ="busket_img" ;
-            busketName.className = "busket_name";
+            bottomArrow.classList.add('spr_bottom_arrow');
+          basket.className = "basket";
+            basketImg.className ="basket_img" ;
+            basketImg.classList.add("spr_basket");
+            basketName.className = "basket_name";
 
 
 
@@ -91,19 +99,25 @@ var local_data = data;
 
      forClubCard.innerHTML = "<strong>По клубной карте</strong>";
      totalPriceWithCard.innerHTML = local_data[i].priceRetailAlt.toFixed(2);
+     roubleDark.src = "images/rouble_b.svg";
+     roubleDark.style.width = "23px";
+     roubleDark.style.height = "23px";
      totalPriceWithoutCard.innerHTML = local_data[i].priceRetail.toFixed(2);
+     roubleGray.src = "images/rouble_b.svg";
+     roubleGray.style.width = "23px";
+     roubleGray.style.height = "23px";
      forMeter.innerHTML = "За м.кв.";
      forPack.innerHTML = "За упаковку";
      warning.src = "images/unit--i.png";
      if (local_data[i].unitFull == "упаковка") {
-     	forPackMeter.innerHTML = "Продается упаковками: 1 упак. = " + (1/local_data[i].unitRatioAlt).toFixed(2) + " м. кв.";
+     	forPackMeter.innerHTML = "Продается упаковками:<br/> 1 упак. = " + (1/local_data[i].unitRatioAlt).toFixed(2) + " м. кв.";
      }else if (local_data[i].unitFull == "штука") {
      	forPackMeter.innerHTML = "Продается штуками";
      }else if (local_data[i].unitFull == "метр погонный" ) {
      	forPackMeter.innerHTML = "Продается метрами"
      };
-     number.innerHTML = 1;
-     busketName.innerHTML = "КОРЗИНА";
+     number.innerHTML = numberClick;
+     basketName.innerHTML = "В КОРЗИНУ";
 
 
 
@@ -127,7 +141,9 @@ var local_data = data;
     price.appendChild(forClubCard);
     price.appendChild(totalPrice);
       totalPrice.appendChild(totalPriceWithCard);
+        totalPriceWithCard.appendChild(roubleDark);
       totalPrice.appendChild(totalPriceWithoutCard);
+         totalPriceWithoutCard.appendChild(roubleGray);
     price.appendChild(forUnit);
       forUnit.appendChild(forMeter);
       forUnit.appendChild(forPack);
@@ -139,9 +155,9 @@ var local_data = data;
         totalNumber.appendChild(number);
         totalNumber.appendChild(topArrow);
         totalNumber.appendChild(bottomArrow);
-    productRightPage.appendChild(busket);
-      busket.appendChild(busketImg);
-      busket.appendChild(busketName);
+    numberBuy.appendChild(basket);
+      basket.appendChild(basketImg);
+      basket.appendChild(basketName);
 
        /*put img at first productPage from local*/
      var imgLogoFirstChild = document.querySelector(".img_logo:first-child");
@@ -149,6 +165,25 @@ var local_data = data;
 
 
      }
+   var topArrowSelect = document.querySelectorAll('.top_arrow');
+   var bottomArrowSelect = document.querySelectorAll('.bottom_arrow');
+   var numberSelect = document.querySelectorAll('.number');
 
+    for (var i = 0;i < topArrowSelect.length;i++) {
+    	topArrowSelect[i].addEventListener("click",function() {
+    		numberClick += 1;
+    		document.querySelectorAll(".number").innerHTML = numberClick;
+    	});
+    	bottomArrowSelect[i].addEventListener("click",function() {
+    		if (numberClick == 0) {
+    			 return;
+    		}
+    		numberClick -= 1;
+    		document.querySelector(".number:first-child").innerHTML = numberClick;
+    	});
+
+    }
+
+     
  
  };
