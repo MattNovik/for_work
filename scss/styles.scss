@@ -1,7 +1,104 @@
 // styles.scss
-main {
-	width:100px;
-	height:100px;
-	background-color: red;
-	color:blue;
+.product_page {
+	display:flex;
+	width:70%;
+	min-width:700px;
+	height:250px;
+	margin:0 0 10px 10px;
+	padding:0;
+	border:solid 1px black;
+	justify-content: space-between;
+}
+.product_left_page {
+	min-width:170px;
+	height:auto;
+	margin:0;
+	padding:0;
+
+	  .img_logo {
+	  	margin:20px;
+	  }
+}
+.product_middle_page {
+	height:auto;
+	margin:0;
+	padding:0 20px;
+	flex-grow: 1;
+	display:grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 70px auto 1fr;
+
+	.middle_top {
+     align-self:center;	 	
+
+	 .middle_top_left,
+	 .middle_top_right {
+	 	display:inline-block;
+	 	width:100px;
+	 	min-width:100px;
+	 	height:auto;
+	 }
+	 .right_text_in_out {
+	 	color:green;
+	 	border-bottom:1px dashed green;
+	 }
+    }
+    
+    .middle_middle_name {
+    	align-self:top;
+    	font-weight:bold;
+    	margin:0 0 10px 0;
+    }
+
+}
+
+.product_right_page {
+    margin:0;
+    padding:0;
+    min-width:250px;
+    height:auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 40px 1fr;
+
+    .price {
+    	display:grid;
+    	margin:0;
+    	padding:0;
+    	grid-template-rows:1fr 1fr 20px; 
+    	grid-template-columns:1fr 1fr;
+    	grid-template-areas:
+         "clubPrice totalPrice"
+         "clubPrice totalPrice"
+         "forUnit forUnit";
+
+    	.for_club_card {
+    		grid-area:clubPrice;
+    		text-align: right;
+    		padding:5px;
+    	}
+
+    	.total_price {
+    		grid-area:totalPrice;
+    		display:grid;
+    		grid-template-rows: 1fr 1fr;
+    		padding:5px;
+            font-size:1.5em;
+            color:black;
+
+    		.total_price_with_card {
+    		 font-weight:bold;
+    		}
+    		.total_price_without_card {
+    		  color:gray;
+    		}
+    	}
+    	.for_unit {
+    		grid-area:forUnit;
+    		text-align: right;
+    		span {
+    			margin:0 5px;
+    		}
+    	}
+    }
 }
