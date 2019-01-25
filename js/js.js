@@ -167,10 +167,26 @@ var local_data = data;
      }
    var topArrowSelect = document.querySelectorAll('.top_arrow');
    var bottomArrowSelect = document.querySelectorAll('.bottom_arrow');
-   var numberSelect = document.querySelectorAll('.number');
+   var totalNumberSelect = document.querySelectorAll('.total_number');
+   var productPageSelect = document.querySelectorAll('.product_page');
 
     for (var i = 0;i < topArrowSelect.length;i++) {
-    	topArrowSelect[i].addEventListener("click",function() {
+
+        productPageSelect[i].onclick = function(event) {
+            
+            if (event.target.classList.contains("top_arrow")) {
+            	numberClick += 1;
+            	this.querySelector(".number").innerHTML = numberClick;
+            }else if (event.target.classList.contains("bottom_arrow")& numberClick > 0) {
+            	numberClick -= 1;
+            	this.querySelector(".number").innerHTML = numberClick;
+            } else {
+            	return;
+            }
+           /*alert("target = " + event.target.className + ", this=" + this.className);*/
+
+           };
+/*    	topArrowSelect[i].addEventListener("click",function() {
     		numberClick += 1;
     		document.querySelectorAll(".number").innerHTML = numberClick;
     	});
@@ -180,7 +196,7 @@ var local_data = data;
     		}
     		numberClick -= 1;
     		document.querySelector(".number:first-child").innerHTML = numberClick;
-    	});
+    	});*/
 
     }
 

@@ -1,4 +1,6 @@
 .product_page {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 70%;
   min-width: 700px;
@@ -6,6 +8,8 @@
   margin: 0 0 10px 10px;
   padding: 0;
   border: solid 1px #000000;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between; }
 
 .product_left_page {
@@ -20,11 +24,14 @@
   height: auto;
   margin: 0;
   padding: 0 20px;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 70px auto 1fr; }
   .product_middle_page .middle_top {
+    -ms-flex-item-align: center;
     align-self: center; }
     .product_middle_page .middle_top .middle_top_left,
     .product_middle_page .middle_top .middle_top_right {
@@ -36,6 +43,7 @@
       color: #309524;
       border-bottom: 1px dashed #309524; }
   .product_middle_page .middle_middle_name {
+    -ms-flex-item-align: top;
     align-self: top;
     font-weight: bold;
     margin: 0 0 10px 0; }
@@ -70,6 +78,7 @@
       .product_right_page .price .total_price .total_price_with_card {
         position: relative;
         font-weight: bold;
+        -ms-flex-item-align: center;
         align-self: center; }
         .product_right_page .price .total_price .total_price_with_card img {
           position: absolute;
@@ -80,6 +89,7 @@
       .product_right_page .price .total_price .total_price_without_card {
         color: gray;
         position: relative;
+        -ms-flex-item-align: center;
         align-self: center; }
         .product_right_page .price .total_price .total_price_without_card img {
           position: absolute;
@@ -111,9 +121,11 @@
     .product_right_page .how_sold img {
       width: 20px;
       height: 20px;
+      -ms-flex-item-align: center;
       align-self: center;
       justify-self: center; }
     .product_right_page .how_sold .for_pack_meter {
+      -ms-flex-item-align: center;
       align-self: center;
       justify-self: start; }
   .product_right_page .how_sold::before,
@@ -176,6 +188,7 @@
       background-color: #FE9900;
       cursor: pointer; }
       .product_right_page .number_buy .basket .basket_img {
+        -ms-flex-item-align: center;
         align-self: center;
         justify-self: center;
         background-image: url("images/el.png");
@@ -185,6 +198,7 @@
       .product_right_page .number_buy .basket .spr_basket {
         background-position: -122px -62px; }
       .product_right_page .number_buy .basket .basket_name {
+        -ms-flex-item-align: center;
         align-self: center;
         justify-self: start;
         font-weight: bold;
